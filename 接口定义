@@ -1,0 +1,87 @@
+用户注册
+
+    接口地址：/users/register   
+    返回格式：json
+    请求方式：post
+
+
+
+    名称	  必填	 类型	  说明
+ 
+    username  Y     string   用户名称
+    password  Y     string   用户密码
+
+返回的数据示例
+{
+  "code": "200", 数据请求成功
+  "errMsg":"",
+  "data":{
+      status:1, 0代表用户名重复  1代表成功   2服务器错误
+      info:"注册成功"
+  }
+}
+
+
+
+
+用户登陆
+
+    接口地址：/users/login   
+    返回格式：json
+    请求方式：post
+
+
+
+    名称	  必填	 类型	  说明
+ 
+    username  Y     string   用户名称
+    password  Y     string   用户密码
+
+返回的数据示例
+{
+  "code": "200", 数据请求成功
+  "errMsg":"",
+  "data":{
+      status:1, 0代表用户名不存在  1代表成功   2密码错误
+      info:"注册成功"
+  }
+}
+
+
+
+
+
+添加商品
+
+    接口地址：/goods/Add   
+    返回格式：formData
+    请求方式：post
+
+
+
+    名称	  必填	 类型	  说明
+ 
+    goodsName   Y     string   商品名称
+    goodsPrice  Y     string   商品价格
+    goodsDes    Y     string   商品详情
+    tel         Y     string   联系电话
+    goodsPic    Y     File     图片
+
+
+
+返回的数据示例
+{
+  "code": "200", 数据请求成功
+  "errMsg":"",
+  "data":{
+      status:1, 0代表失败  1成功
+      info:"添加成功"
+  }
+}
+
+
+
+MVC：
+    M:model层 数据层
+    V:view层 视图层
+    C:controller层 逻辑层
