@@ -26,7 +26,22 @@ let goodsFind = (goodsInfo, cb) => {
 		});
 };
 
+let goodsUpdate = (goodsInfo, cb) => {};
+
+let goodsRemove = (goodsInfo, cb) => {
+	Goods.remove().then(result => {
+		cb(result);
+	});
+};
+let goodsModify = (goodsId, goodsInfo, cb) => {
+	Goods.update(goodsId, { $set: goodsInfo }).then(result => {
+		cb(result);
+	});
+};
+
 module.exports = {
 	goodsSave,
-	goodsFind
+	goodsFind,
+	goodsRemove,
+	goodsModify
 };

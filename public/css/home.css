@@ -71,3 +71,28 @@
 .thumbnail > img {
 	height: 63%;
 }
+
+/* .main_container {
+	position: relative;
+} */
+.editGoods {
+	position: fixed;
+	top: 150px;
+	left: 600px;
+	width: 500px;
+	min-height: 200px;
+	background: #fff;
+	padding: 10px 10px;
+	border-radius: 5px;
+	display: none;
+}
+.mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+	opacity: 0.8;
+	display: none;
+}

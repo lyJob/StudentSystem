@@ -59,7 +59,58 @@ const list = (req, res, next) => {
 	});
 };
 
+//删除数据
+const removeg = (req, res, next) => {
+	let { id } = req.query;
+
+	goodsModel.goodsRemove(id, data => {
+		res.json({
+			code: 200,
+			errMsg: '数据下架成功',
+			data: {
+				status: 1,
+				list: data
+			}
+		});
+	});
+};
+
+//修改
+const modify = (req, res, next) => {
+	let { goodsName, goodsPrice, tel, goodsDes, id } = req.body;
+	//path.parse 处理路径 将路径做一个解析 解析成一个对象
+	let pathUrl = 'http://localhost:3000/img/' + path.parse(req.files.goodsPic[0].path).base;
+
+	goodsModel.goodsModify(
+		{ _id: id },
+		{ goodsName, goodsPrice, tel, goodsDes, goodsPic: pathUrl },
+		result => {
+			if (result.ok) {
+				res.json({
+					code: 200,
+					errMsg: '',
+					data: {
+						status: 1,
+						info: '修改成功'
+					}
+				});
+			} else {
+				res.json({
+					code: 200,
+					errMsg: '',
+					data: {
+						status: 0,
+						info: '修改失败'
+					}
+				});
+			}
+		}
+	);
+};
+
 module.exports = {
 	add,
-	list
+	list,
+	removeg,
+	modify
 };

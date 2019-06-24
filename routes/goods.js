@@ -30,4 +30,10 @@ router.post('/add', cpUpload, goodsController.add);
 //获取商品列表
 router.get('/list', cpUpload, goodsController.list);
 
+//修改商品信息
+router.post('/modify', cpUpload, goodsController.modify);
+
+//商品列表下架
+router.get('/removeg', cpUpload, goodsController.removeg);
+
 module.exports = router;
